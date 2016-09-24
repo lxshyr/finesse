@@ -1,0 +1,46 @@
+<html>
+
+<body>
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/link-initialize.js"></script>
+<script>
+  var linkHandler = Plaid.create({
+    env: 'tartan',
+    clientName: 'Client Name',
+    key: 'fa51aa20b2118a1566569da6935f7d',
+    // key: 'test_key',
+    product: 'connect',
+    // To use Link with longtail institutions on Connect, set the
+    // 'longtail' option to true:
+    // longtail: true,
+    onLoad: function() {
+      // The Link module finished loading.
+
+  	  linkHandler.open();
+    },
+    onSuccess: function(public_token, metadata) {
+      // Send the public_token to your app server here.
+      // The metadata object contains info about the institution the
+      // user selected and the account ID, if selectAccount is enabled.
+      $('#result').empty().append(public_token);
+      $('#metadata').empty().append(metadata);
+
+      $.post('plaid.php',
+      		{action: 'authenticate', user_name: 'blah', public_token: metadata}
+  		);
+    },
+    onExit: function() {
+      // The user exited the Link flow.
+      alert('haha');
+      // window.location.href = 'closeWindow.php';
+    }
+  });
+
+  // Trigger the standard institution select view
+</script>
+
+<p> Result: <div id="result" /> </p>
+<p> Metadata: <div id="metadata" /> </p>
+
+</body>
+</html>
