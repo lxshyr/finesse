@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.finessebudget.finesse.TransactionAdd">
+
+    <item
+        android:id="@+id/action_return"
+        android:icon="@drawable/ic_action_back"
+        android:title="Return"
+        app:showAsAction="always"
+        />
+
+    <item
+        android:id="@+id/action_trash"
+        android:icon="@drawable/ic_action_trash"
+        android:title="Delete"
+        app:showAsAction="always"
+        />
+
+    <item
+        android:id="@+id/action_submit"
+        android:icon="@drawable/ic_action_submit"
+        android:title="Submit"
+        app:showAsAction="always"
+        />
+
+
+</menu>
